@@ -1,0 +1,143 @@
+<?xml version="1.0"?>
+<interface>
+  <requires lib="gtk+" version="2.16"/>
+  <!-- interface-naming-policy project-wide -->
+  <object class="GtkWindow" id="window">
+    <property name="title" translatable="yes">Volume Control</property>
+    <property name="window_position">center</property>
+    <property name="default_width">400</property>
+    <property name="default_height">150</property>
+    <property name="icon_name">multimedia-volume-control</property>
+    <signal name="destroy" handler="destroy"/>
+    <child>
+      <object class="GtkHBox" id="hbox1">
+        <property name="visible">True</property>
+        <child>
+          <object class="GtkVBox" id="vbox2">
+            <property name="visible">True</property>
+            <child>
+              <object class="GtkImage" id="speaker_image">
+                <property name="visible">True</property>
+                <property name="pixel_size">48</property>
+                <property name="icon_name">audio-volume-high</property>
+                <property name="icon-size">6</property>
+              </object>
+              <packing>
+                <property name="position">0</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkImage" id="microphone_image">
+                <property name="visible">True</property>
+                <property name="pixel_size">48</property>
+                <property name="icon_name">audio-input-microphone</property>
+                <property name="icon-size">6</property>
+              </object>
+              <packing>
+                <property name="position">1</property>
+              </packing>
+            </child>
+          </object>
+          <packing>
+            <property name="position">0</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkVSeparator" id="vseparator1">
+            <property name="width_request">2</property>
+            <property name="visible">True</property>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="position">1</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkVBox" id="vbox1">
+            <property name="visible">True</property>
+            <child>
+              <object class="GtkLabel" id="speaker_Text">
+                <property name="visible">True</property>
+                <property name="label" translatable="yes">Lautsprecher / Kopfh&#xF6;rer</property>
+                <attributes>
+                  <attribute name="weight" value="bold"/>
+                  <attribute name="size" value="10000"/>
+                </attributes>
+              </object>
+              <packing>
+                <property name="position">0</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkHScale" id="speaker_level">
+                <property name="width_request">200</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="tooltip_markup">Lautst&#xE4;rkeeinstellungen</property>
+                <property name="tooltip_text" translatable="yes">Headset 1</property>
+                <property name="adjustment">spkadj</property>
+                <property name="digits">0</property>
+                <property name="value_pos">right</property>
+                <signal name="change_value" handler="on_speaker_value_change"/>
+              </object>
+              <packing>
+                <property name="position">1</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkHSeparator" id="hseparator1">
+                <property name="visible">True</property>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="position">2</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkLabel" id="microphone_Text">
+                <property name="visible">True</property>
+                <property name="label" translatable="yes">Mikrofon</property>
+                <attributes>
+                  <attribute name="weight" value="bold"/>
+                  <attribute name="size" value="10000"/>
+                </attributes>
+              </object>
+              <packing>
+                <property name="position">3</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkHScale" id="microphone_level">
+                <property name="width_request">200</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="adjustment">micadj</property>
+                <property name="digits">0</property>
+                <property name="value_pos">right</property>
+                <signal name="change_value" handler="on_microphone_value_change"/>
+              </object>
+              <packing>
+                <property name="position">4</property>
+              </packing>
+            </child>
+          </object>
+          <packing>
+            <property name="position">2</property>
+          </packing>
+        </child>
+      </object>
+    </child>
+  </object>
+  <object class="GtkAdjustment" id="micadj">
+    <property name="upper">110</property>
+    <property name="step_increment">1</property>
+    <property name="page_increment">10</property>
+    <property name="page_size">10</property>
+  </object>
+  <object class="GtkAdjustment" id="spkadj">
+    <property name="upper">110</property>
+    <property name="step_increment">1</property>
+    <property name="page_increment">10</property>
+    <property name="page_size">10</property>
+  </object>
+</interface>
