@@ -33,7 +33,6 @@ class VolumeControl:
         _head_card = str.split(_head_card)[2]
 
         _head_volume = 'pacmd set-sink-volume ' + str(_head_card) + ' ' + str(int(self.speaker_level.get_value()) * 65537 / 100) + ' > /dev/null'
-        print _head_volume
         _head_volume = os.popen(_head_volume)
 
     def on_microphone_value_change(self, scale, *args):
